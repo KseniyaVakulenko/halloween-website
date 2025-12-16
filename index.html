@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хэллоуинская Магия</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Кнопка смены темы в углу -->
+    <button id="themeToggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <!-- Новая минималистичная шапка -->
+        <header>
+            <div class="header-simple">
+                <h1 class="halloween-title">
+                    <span class="title-1">HALLOWEEN</span>
+                    <span class="title-2">MAGIC</span>
+                </h1>
+                <div class="header-subtitle">
+                    <div class="dash"></div>
+                    <span>Волшебство и опасность в каждой тыкве</span>
+                    <div class="dash"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Тыквенное поле с опасными тыквами -->
+            <section class="pumpkin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-radiation-alt"></i> Опасное тыквенное поле</h2>
+                    <button id="pumpkinButton" class="btn btn-pumpkin">
+                        <i class="fas fa-plus-circle"></i> Посадить тыкву
+                    </button>
+                </div>
+                <p class="section-description">Собирайте тыквы, но будьте осторожны! Среди них есть <span class="danger-text">ВЗРЫВНЫЕ</span> тыквы! Если найдёте 3 взрывные тыквы, вы проиграете!</p>
+                
+                <div class="game-stats">
+                    <div class="stat">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Опасные тыквы: <span id="dangerCount">0</span>/3</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-heart"></i>
+                        <span>Жизни: <span id="livesCount">3</span></span>
+                    </div>
+                </div>
+                
+                <div id="pumpkinField" class="pumpkin-field"></div>
+                <div id="explosion" class="explosion"></div>
+            </section>
+
+            <!-- Счётчик конфет и игра -->
+            <div class="game-row">
+                <section class="counter-section">
+                    <h2><i class="fas fa-candy-cane"></i> Конфетный запас</h2>
+                    <div class="candy-display">
+                        <div class="candy-jar">
+                            <i class="fas fa-jar"></i>
+                            <div class="candy-count" id="candyCount">10</div>
+                        </div>
+                        <p class="candy-message" id="candyMessage">Хватит для всех призраков!</p>
+                    </div>
+                </section>
+
+                <section class="game-section">
+                    <h2><i class="fas fa-ghost"></i> Ловля призраков</h2>
+                    <p>Поймайте как можно больше призраков за 10 секунд!</p>
+                    <div class="game-container">
+                        <div class="game-info">
+                            <div class="game-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Время: <span id="timeLeft">10</span>с</span>
+                            </div>
+                            <div class="game-stat">
+                                <i class="fas fa-trophy"></i>
+                                <span>Счёт: <span id="score">0</span></span>
+                            </div>
+                        </div>
+                        <div id="gameArea">
+                            <div id="ghost" class="ghost">👻</div>
+                        </div>
+                        <button id="startGame" class="btn btn-game">Начать охоту!</button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Панель управления эффектами -->
+            <section class="effects-section">
+                <h2><i class="fas fa-magic"></i> Магические эффекты</h2>
+                <div class="effects-controls">
+                    <button id="spiderButton" class="btn btn-effect">
+                        <i class="fas fa-spider"></i> Паучий дождь
+                    </button>
+                    <button id="batButton" class="btn btn-effect">
+                        <i class="fas fa-bat"></i> Мышиная стая
+                    </button>
+                    <button id="candleButton" class="btn btn-effect">
+                        <i class="fas fa-fire"></i> Призыв свечей
+                    </button>
+                    <button id="trickButton" class="btn btn-effect">
+                        <i class="fas fa-hat-wizard"></i> Фокус-покус
+                    </button>
+                </div>
+                <div id="trickMessage" class="trick-message"></div>
+            </section>
+
+            <!-- Генератор предсказаний -->
+            <section class="prediction-section">
+                <h2><i class="fas fa-crystal-ball"></i> Хрустальный шар</h2>
+                <p>Узнайте, что ждёт вас в эту хэллоуинскую ночь...</p>
+                <div class="prediction-input">
+                    <input type="text" id="nameInput" placeholder="Введите ваше имя...">
+                    <button id="generateMessage" class="btn btn-prediction">
+                        <i class="fas fa-eye"></i> Увидеть будущее
+                    </button>
+                </div>
+                <div class="crystal-container">
+                    <div class="crystal-ball">
+                        <div class="ball-content" id="predictionText">
+                            Шар ждёт вашего вопроса...
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Подвал как в прошлой версии -->
+        <footer>
+            <div class="footer-content">
+                <p class="footer-text">Страшной ночи и сладких кошмаров! <i class="fas fa-ghost"></i></p>
+                <div class="interactive-footer">
+                    <p class="hint-text" id="spookyText">Наведи курсор на меня, если не боишься...</p>
+                    <div id="footerMessage" class="footer-message"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Контейнеры для эффектов -->
+    <div id="spidersContainer"></div>
+    <div id="batsContainer"></div>
+    <div id="candlesContainer"></div>
+
+    <!-- Аудио -->
+    <audio id="spookySound" src="https://assets.mixkit.co/sfx/preview/mixkit-horror-laugh-583.mp3" preload="auto"></audio>
+    <audio id="gameSound" src="https://assets.mixkit.co/sfx/preview/mixkit-ghostly-whispers-505.mp3" preload="auto"></audio>
+    <audio id="explosionSound" src="https://assets.mixkit.co/sfx/preview/mixkit-bomb-explosion-2806.mp3" preload="auto"></audio>
+    <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkles-3007.mp3" preload="auto"></audio>
+    <audio id="candleSound" src="https://assets.mixkit.co/sfx/preview/mixkit-magic-fire-blast-3876.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
